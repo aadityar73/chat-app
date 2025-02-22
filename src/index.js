@@ -15,6 +15,7 @@ const {
   getUser,
   getUsersInRoom,
 } = require('./utils/users.js');
+const { addRoom, removeRoom, getRooms } = require('./utils/rooms.js');
 
 const port = process.env.PORT;
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -26,12 +27,18 @@ const io = socketio(server);
 app.use(express.static(publicDirectoryPath));
 
 io.on('connection', socket => {
+  io.emit('activeRooms', { rooms: getRooms() });
+
   socket.on('join', (options, callback) => {
     const { error, user } = addUser({ id: socket.id, ...options });
 
     if (error) {
       return callback(error);
     }
+
+    addRoom(user.room);
+
+    io.emit('activeRooms', { rooms: getRooms() });
 
     socket.join(user.room);
 
@@ -86,6 +93,10 @@ io.on('connection', socket => {
     const user = removeUser(socket.id);
 
     if (user) {
+      removeRoom(user.room);
+
+      io.emit('activeRooms', { rooms: getRooms() });
+
       io.to(user.room).emit(
         'message',
         generateMessage('Admin', `${user.username} has left!`)
