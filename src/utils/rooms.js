@@ -21,7 +21,9 @@ const getRooms = () => {
     uniqueRooms.push(room);
   });
 
-  return [...new Set(uniqueRooms)].map(room => ({ room }));
+  return [...new Set(uniqueRooms)].map(room => ({
+    room: room[0].toUpperCase() + room.slice(1),
+  }));
 };
 
 module.exports = { addRoom, removeRoom, getRooms };
