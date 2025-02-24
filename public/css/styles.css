@@ -174,16 +174,12 @@ button:disabled {
 }
 
 .compose button {
-  font-size: 1.4rem;
-}
-
-.send-message__button {
   padding: 1.2rem 1.6rem;
 }
 
-.send-icon {
-  width: 1.6rem;
-  height: 1.6rem;
+.icon {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 /* Chat Sidebar Styles */
@@ -229,7 +225,32 @@ h1,
   margin-bottom: 1.6rem;
 }
 
-/* When the screen width is 600px or less */
+/* Media Queries */
+@media (max-width: 665px) {
+  .chat__sidebar {
+    width: 16rem;
+  }
+
+  .compose {
+    padding: 2rem;
+  }
+
+  .compose button {
+    padding: 1rem 1.4rem;
+  }
+
+  .icon {
+    width: 1.6rem;
+    height: 1.6rem;
+  }
+
+  .send-location__button {
+    position: absolute;
+    bottom: 73px;
+    right: 35px;
+  }
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 2.4rem;
@@ -243,6 +264,14 @@ h1,
   input {
     font-size: 1.2rem;
     padding: 1rem;
+  }
+
+  .compose input {
+    font-size: 1.4rem;
+  }
+
+  .message {
+    margin-bottom: 1rem;
   }
 
   .centered-form__box,
@@ -278,6 +307,27 @@ h1,
     padding: 0.8rem;
   }
 
+  .chat__sidebar {
+    width: 14rem;
+  }
+
+  .compose {
+    padding: 1.6rem;
+  }
+
+  .compose input {
+    font-size: 1.4rem;
+  }
+
+  .send-location__button {
+    bottom: 68px;
+    right: 32px;
+  }
+
+  .message {
+    margin-bottom: 0.8rem;
+  }
+
   .centered-form__box,
   .active__rooms {
     padding: 1.2rem;
@@ -311,9 +361,18 @@ h1,
     font-size: 1.5rem;
   }
 
+  .compose {
+    padding: 1.2rem;
+  }
+
   .active__rooms {
     padding: 1rem;
     width: 10rem;
+  }
+
+  .send-location__button {
+    bottom: 63px;
+    right: 28px;
   }
 }
 
@@ -324,5 +383,14 @@ h1,
 
   .active__rooms {
     width: 8rem;
+  }
+
+  .compose {
+    padding: 0.9rem;
+  }
+
+  .send-location__button {
+    bottom: 60px;
+    right: 25px;
   }
 }
