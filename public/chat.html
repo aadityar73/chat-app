@@ -6,7 +6,16 @@
     <title>Chat App</title>
 
     <link rel="icon" href="./img/favicon.png" />
-    <link rel="stylesheet" href="./css/styles.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </head>
   <body>
     <div class="chat">
@@ -24,7 +33,9 @@
               required
               autocomplete="off"
             />
-            <button type="submit">Send</button>
+            <button class="send-message__button" type="submit">
+              <ion-icon class="send-icon" name="send-sharp"></ion-icon>
+            </button>
           </form>
           <button id="send-location">Send Location</button>
         </div>
